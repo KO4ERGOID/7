@@ -1320,7 +1320,7 @@ class CFileMan
 			return;
 
 		global $htmled, $usehtmled;
-		$strTextFieldName1 = preg_replace("/[^a-zA-Z0-9_:\.]/is", "", $strTextFieldName);
+		$strTextFieldName1 = preg_replace("/[^a-zA-Z0-9_:\.]/is", "", $strTextFieldName); //Переименовал переменную
 
 		if(is_array($arSize))
 			$iHeight = $arSize["height"];
@@ -1332,13 +1332,13 @@ class CFileMan
 
 		if ($arAdditionalParams['hideTypeSelector'])
 		{
-			$textType = $strTextTypeValue == 'html' ? 'editor' : 'text';
-			?><input type="hidden" name="<?= $strTextTypeFieldName?>" value="<?= $strTextTypeValue?>"/><?
+			$textType = $strTextTypeValue == 'html' ? 'editor' : 'text'; 
+			?><input type="hidden" name="<?= $strTextTypeFieldName?>" value="<?= $strTextTypeValue?>"/><? 
 		}
 		else
 		{
 			$textType = CFileMan::ShowTypeSelector(array(
-				'name' => $strTextFieldName1,
+				'name' => $strTextFieldName1, //Переименовал переменную
 				'key' => $arAdditionalParams['saveEditorKey'],
 				'strTextTypeFieldName' => $strTextTypeFieldName,
 				'strTextTypeValue' => $strTextTypeValue,
@@ -1349,7 +1349,7 @@ class CFileMan
 		$curHTMLEd = $textType == 'editor';
 		setEditorEventHandlers($strTextFieldName1);
 		?>
-		<textarea class="typearea" style="<? echo(($curHTMLEd || $dontShowTA) ? 'display:none;' : '');?>width:100%;height:<?=$iHeight?>px;" name="<?=$strTextFieldName?>" id="bxed_<?=$strTextFieldName1?>" wrap="virtual" <?=$textarea_field?>><?= htmlspecialcharsbx($strTextValue)?></textarea>
+		<textarea class="typearea" style="<? echo(($curHTMLEd || $dontShowTA) ? 'display:none;' : '');?>width:100%;height:<?=$iHeight?>px;" name="<?=$strTextFieldName?>" id="bxed_<?=$strTextFieldName1?>" wrap="virtual" <?=$textarea_field?>><?= htmlspecialcharsbx($strTextValue)?></textarea> //Переименовал переменную
 		<?
 
 		if ($bWithoutPHP)
